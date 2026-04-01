@@ -10,6 +10,8 @@ if (!mongoUri) {
   process.exit(1);
 }
 
+module.exports = getApp;
+
 console.log("🔍 Mongo URI found. Connecting...");
 
 
