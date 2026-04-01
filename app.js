@@ -12,7 +12,6 @@ if (!mongoUri) {
 
 console.log("🔍 Mongo URI found. Connecting...");
 
-require("dotenv").config(); // add at top of file (only once)
 
 async function getApp() {
 
