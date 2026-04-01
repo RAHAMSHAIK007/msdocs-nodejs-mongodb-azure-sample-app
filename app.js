@@ -1,4 +1,3 @@
-require("dotenv").config(); // MUST be at top
 
 const mongoUri =
   process.env.AZURE_COSMOS_CONNECTIONSTRING ||
