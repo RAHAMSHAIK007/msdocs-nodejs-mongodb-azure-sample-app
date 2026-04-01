@@ -13,7 +13,21 @@ if (!mongoUri) {
 
 console.log("🔍 Mongo URI found. Connecting...");
 
-async function connectDB() {
+require("dotenv").config(); // add at top of file (only once)
+
+async function getApp() {
+
+  const mongoUri =
+    process.env.AZURE_COSMOS_CONNECTIONSTRING ||
+    process.env.MONGODB_URI;
+
+  if (!mongoUri) {
+    console.error("❌ MongoDB URI is missing");
+    process.exit(1);
+  }
+
+  console.log("🔍 Connecting to MongoDB...");
+
   try {
     await mongoose.connect(mongoUri, {
       useNewUrlParser: true,
@@ -27,5 +41,3 @@ async function connectDB() {
   }
 }
 
-// CALL IT BEFORE APP STARTS
-await connectDB();
